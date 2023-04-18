@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //1. if문
+        // if(조건){    << 조건이 참인 경우에 실행내용 진행
+        // 실행 내용
+        // }
+        //2. switch문
+
+        // if(273 < 100){
+        //     alert("true");
+        // }
+        // else{
+        //     alert("시리야 else 구문 실행해줘")
+        // }
+
+        // 시간을 가져오는 기능
+        const date = new Date();
+        const hour = date.getHours(); // 현재 몇 시인지 가져오기
+        console.log(hour);
+
+        // 12보다 작은 수(오전)
+        // if(hour < 12){
+        //     alert("오전입니다");
+        // } else{
+        //     alert("오후입니다");
+        // }
+
+        // 삼항연산자
+
+        let text = hour < 12 ? "오전입니다." : "오후입니다";
+        console.log(text);
+
+        // 입력한 성적에 따라서 학점을 출력하는 기능
+        // 점수를 입력
+
+        // 90 점 이상 > A
+        // 80 점 이상 > B
+        // 70 점 이상 > C
+        // 60 점 이상 > D
+        // 그 외 > F
+        
+        
+        // let point = prompt("점수를 입력하십셔");
+
+        // if(point >90){
+        //     console.log("니 학점은 A다");
+        // }
+        // if(point < 90 && point >= 80){
+        //     console.log("니 학점은 B다");
+        // }
+        // if(point < 80 && point >= 70){
+        //     console.log("니 학점은 C다");
+        // }
+        // if(point < 70 && point >= 60){
+        //     console.log("니 학점은 D다");
+        // }
+        // else{8
+        //     console.log("닌 제적이다")
+        // }
+
+        // let point = prompt("점수를 입력하십셔");
+        // if(point >= 90){
+        //     console.log("A학점데스요");
+        // } else if(point >= 80){
+        //     console.log("B학점데스요");
+        // } else if(point >= 70){
+        //     console.log("C학점데스요");
+        // } else{
+        //     console.log("닌 제적이다");
+        // }
+
+        // let point = prompt("점수를 입력하십셔");
+        // if(point >=0 && point < 60){
+        //     console.log("F학점데스요");
+        // } else if(point < 70){
+        //     console.log("D학점데스요");
+        // } else if(point < 80){
+        //     console.log("C학점데스요");
+        // } else{
+        //     console.log("닌 100점이다");
+        // }
+
+        // 내가 원하는 데이터만 출력하는법
+
+        // 홀수, 짝수 판단하기
+        // let num = prompt("숫자 입력");
+
+        // if(num%2 == 0){
+        //     console.log("짝수");
+        // } else if(num%2 != 0){
+        //     console.log("홀수")
+        // }
+
+
+        // 중첩 if문
+
+        //if(조건1){
+        //    if(조건2){
+
+        //    }
+        //}
+
+
+        // 2의 배수이고 5의 배수인 숫자출력
+
+        // let number2 = prompt("숫자를 입력하든 말든");
+
+        // if(number2%2 == 0){
+        //     if(number2%5 == 0){
+        //         console.log("2의 배수이면서 5의 배수 : "+number2);
+        //     } else{
+        //         console.log("2의 배수이기만 한 숫자 : "+number2);
+        //     }
+        // } else{
+        //     console.log("2의배수도 5의 배수도 아닌 너는 : "+number2);
+        // }
+
+        let walkAmount = prompt("a sheep which walks for all day?");
+
+        if(walkAmount > 10000){
+            if(walkAmount > 15000){
+                document.write("crazy awesome!!!!!!!!!!!!!!!!!!!")
+            } else{
+                document.write("awesome!!!!")
+            }
+        } else{
+            document.write("shiiiiiiiit!")
+        }
+
+        //이름에 따라서 방문 유무 체크
+        
+        let userName= prompt("접근자 이름을 입력하세요.")
+
+        if(userName != "Jerry"){
+            document.write(userName + "님은 접근권한이 없습니다.");
+        }
+
+        let result = confirm("정말로 탈퇴할꺼니?")
+        if(result){ //확인을 누르면
+            alert("탈퇴 완료");
+        } else{ //취소를 누르면
+            alert("탈퇴 처리 취소")
+        }
+
+        // 간단한 ID/PW 확인 절차
+
+        let id = "yedam";
+        let pw = "1234";
+
+        let userId = prompt("ID 입력")
+        let userPw = prompt("Password 입력")
+
+        if(id == userId){
+            if(pw == userPw){
+                document.write("로그인에 성공하였습니다.");
+            } else{
+                alert("비밀번호가 일치하지 않습니다.");
+                location.reload(); //화면 새로고침
+            }
+        } else{
+            alert("존재하지 않는 아이디입니다.");
+            location.reload();
+        }
+
+
+        // switch
+    </script>
+</body>
+</html>
+
+

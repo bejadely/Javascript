@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // operater는 연산자의 의미
+
+        // 연산자란 > + - * / % 등등으로
+
+        // 자바 스크립트에서는 단항, 이항, 삼항 연산자가 있다
+
+        // 단항 > 피연산자가 한개
+        
+        // ex) ++, --  >> 증감 연산자라고 한다
+        
+        // 이항 > 피연산자가 두개 (1+2) 여기서 연산당하는 애가 두개 1, 2
+        
+        // ex) + - * / % (산술연산자)
+        
+        // 복합 대입 연산자
+
+        // 대입 연산자 > 우항을 좌항에 대입한다
+
+        // += -= *= /= %= (복합 대입 연산자)
+
+        // == != === > < >= <=     ===는 데이터와 데이터 타입까지 비교하는 비교연산자
+
+        // 삼항 > 피연산자가 세개
+        
+        // ex) 
+        
+        let num = 1;
+        num = num + 1;
+        console.log(num++); //2가 출력되고 난 다음에 +1이 됨
+        console.log(++num); //이전 단계에서 +1이 되었기 때문에 3에다가 ++해서 4가 되고 출력
+
+        let sum = 10 + 10;
+        let sub = 20 - 10;
+        let div = 50 / 5;
+        let sup = 20 * 30;
+        
+        console.log(sum); // 10 + 10
+        console.log(sub); // 20 - 10
+        console.log(div); // 50 / 5 의 몫
+        console.log(sup); // 20 * 30
+        
+
+        sum1 = 20;
+        sum1 = sum1 + 10; //30
+        sum1 += 10; //40
+        
+
+        console.log(sum1);
+
+        // 2) 이항 연산자
+
+        // 비교 연산자
+
+        let fNum = 1;
+        let sNum = 2;
+        let tNum = '1';
+
+        console.log("===비교 연산자");
+        console.log(fNum == sNum);
+        console.log(fNum != sNum);
+        console.log(fNum == tNum);
+        console.log(fNum === tNum);
+
+        console.log(fNum > sNum);
+        console.log(fNum <= sNum);
+        console.log(fNum <= tNum);
+
+        // 논리 연산자
+
+        // &&(*) and / ||(+) or / TRUE 1 이상 / FALSE 0 이것만 알면 여러가지 복잡한 논리연산도 쉽게 할 수 있다
+
+        console.log("===논리 연산자");
+        console.log(true && true);
+
+        console.log(fNum < sNum && fNum >= sNum);
+        console.log(fNum < sNum || fNum >= sNum);
+
+        // 문자 연산자 : +
+
+        // 문자 사이에서 +를 사용해서 두개의 문자를 합칠 때 활용한다
+
+        let str9 = "yedam" + ' ' + 'yedam' +100 + '100';
+        console.log(str9);
+        console.log(typeof str9); // 문자랑 숫자가 합쳐져버리면 좀 더 덩치가 큰 애쪽으로 통합된다.
+
+        // 부정연산자 :  not > !
+
+        console.log(!true);
+
+        // 덩치가 작은애가 덩치가 큰애로(표현을 다 포괄해서 할 수 있는 친구로 바뀐다) 타입 자동 변환(자동 형변환이었던거같은데 단어가)
+
+        n1 = 1.1;
+        n2 = 3;
+        console.log(n1+n2);
+        console.log(typeof n1+n2);
+
+        //삼항 연산자의 예시
+
+        // 조건? True : False
+        // 조건이 True : 첫번째 구문 실행
+        // 조건이 False : 두번째 구문 실행
+
+        let result2 = fNum < sNum ? 'fNum이 작음' : 'fNum이 큼'; // 참일때는 앞에값이 들어가고, 거짓일땐 뒤의 값이 들어간다
+        console.log(result2);
+
+        // 입력받은 세자리수의 각 자리의 합을 구해 출력하세요.
+
+        // ex) 888 > 8+8+8 = 24
+        // ex) 753 > 7+5+3 = 15
+
+
+        // 내답안
+        let a = window.prompt("세자리수 입력");
+        number = parseInt(a/100) + parseInt((a%100)/10)+(a%100)%10
+        window.alert(number);
+
+        console.log(383/100);
+
+        // 교수님 풀이
+
+        // let number = window.prompt("세자리 수 입력");
+        // let hundred = parseInt(number / 100); // 백의 자리수
+        // let ten - 
+
+    
+
+    </script>
+</body>
+</html>

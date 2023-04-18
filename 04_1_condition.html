@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 2. switch문 ~ case문
+
+        // switch(변수){
+        //     case 조건:
+        //         실행문
+        //         break;
+        //     case 조건:
+        //         실행문
+        //         break;
+        //         .
+        //         .
+        //         .
+        //     default:  // if문에서의 else임
+        //         실행문
+        //         break;
+        // }
+
+        // if문의 else문과 switch문의 default의 공통점 : 없어도 실행된다(옵션문이다)
+        
+        // const input = Number(prompt("숫자를 입력해주세요."));
+        // let no = input%2;
+
+        // switch(input%2){
+        //     case 0:
+        //         alert("짝수");
+        //         break; //case의 값이 해당될때 break를 만나면 중괄호 밖으로 나간다
+        //     case 1:
+        //         alert("홀수");
+        //         break;
+        //     default:
+        //         alert("숫자가 아님");
+        //         break;
+
+        // }
+        
+        
+        // 문제
+        // 성적을 출력하는 예제
+        // 점수 입력 > prompt();
+        // A : 90이상
+        // B : 80~89...
+        // switch 구문 활용
+        // 출력구문은 한번만 사용할 것
+        // 100점도 A학점입니다를 출력할 것
+        
+
+        // 내답안
+
+        const input = Number(prompt("숫자를 입력해주세요."));
+
+        switch(parseInt(input/10)){
+            case 10:
+            case 9:
+                alert("A학점");
+                break;
+            case 8:
+                alert("B학점");
+                break;
+            case 7:
+                alert("C학점");
+                break;
+            case 6:
+                alert("D학점");
+        }
+
+    </script>
+</body>
+</html>

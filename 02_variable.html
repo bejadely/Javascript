@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        console.log('안녕'); /* 문장 */
+        console.log("==var test=="); 
+        console.log(test1) //test1 변수 지정을 이 문장보다 아래에서 지정을 해줬는데도 일단 undefined값으로 나온다
+        // 원시형 데이터 타입
+        
+        // 1.숫자 
+        
+        let num = 1;
+        let no = 2;
+        console.log(typeof no); //변수의 타입을 확인할때 사용하는 명령어
+
+        
+        // num > 변수 : 데이터를 담을 수 있는 그릇 > 네이밍을 해줄 수 있음 / 변수를 만들때 가장 중요한 규칙이 하나 있음
+
+        // 변수를 만들때 중요한 규칙 : 변수만 봐도 어떠한 용도인지 직관적으로 알 수 있게 해야한다
+
+        // = > 대입연산자, 오른쪽에 있는것을 왼쪽에 넣으세요 라는 의미
+
+        // let > 변수를 사용할 수 있는 범위  >> 주로 let var const 세가지를 쓰게 될 거임
+
+        //2.문자형 - 변수에 문자가 들어가는 경우
+        
+        let str = 'javascript';
+        let str2 = 'javascript2';
+        console.log(typeof str);
+        console.log(typeof str2);
+        console.log(typeof str);
+        
+        
+        //3.불리언(bool) - 참/거짓 판단할때 사용
+        let result = ((1+1) == (1+2))
+        console.log(result)
+        console.log(typeof result);
+        
+        //4.null - 정체모를 데이터 값이 들어간 것이라 보면 된다. 어떤 객체도 가리키고 있지 않음 (변수를 초기화 하지 않았다.)
+        
+        let var1 = null;
+        console.log(var1);
+
+        
+        
+        //5. undefined - 변수에 데이터가 야예 없을 때
+
+        let data
+        
+        
+        //6.NaN > not a number > 문자를 숫자로 바꿀 수 있다
+        // '1' 이건 숫자로 변환이 가능하다
+        let str3 = 'java';
+        console.log(typeof str3);
+        let num2 = Number(str3);
+        console.log(typeof num2);
+        
+
+        
+        // 참조형 데이터 타입 > 배열, 객체 할 때 사용하기 때문에 지금은 패스
+
+
+        // 자료형 변환
+
+        //숫자 > 문자로 변환
+
+        //문자 > 숫자로 변환
+
+        let str4 = "12345";
+        let str5 = "123.123";
+        let str6 = "12345aaa";
+        //1. Number() > 문자를 숫자로 변환해주는 것
+        // 소수점이 존재하면 포함해서 변환, 단 숫자에 문자가 포함되어있으면 안됨(NaN값이 된다는 소리)
+        
+        console.log(str5)
+        console.log(typeof str5)
+        let num3 =Number(str5);
+        console.log(num3)
+        console.log(typeof num3)
+
+        //2. parseInt() > 역시 문자를 숫자로 변환시켜주는데, 문자가 있으면 문자를 없애주고 숫자로 변환(정수일때)
+        let num5 = parseInt(str6);
+        console.log(num5);
+        console.log(typeof num5)
+        let testnumber=parseInt(str5);
+        console.log(testnumber);
+
+        //3. parseFloat() > 문자형태의 데이터 타입을 숫자로 바꿔준다(실수일때)
+        let floatnum1 = parseFloat(str5);
+        console.log(floatnum1);
+        // int는 소수점이 없기 때문에 parseInt를 사용하면 소수점이 사라짐
+
+
+        // 숫자 > 문자로 바꿔주는 것
+
+        // 1. toString()
+
+        // 2. String()
+        // 자동 형변환
+
+        num3 = null;
+        let str9 = String(num3);
+        console.log(str9);
+        console.log(typeof str9);
+        
+
+
+        //변수 이름 정하는 규칙
+        // 1) 변수는 숫자로 시작하면 안됨
+        // 2) 변수는 공백을 포함하면 안됨
+        // ex) 25current, curr ent 사용불가
+        // 3) 변수는 대소문자를 구별한다
+        // ex) current, Current, CuRrent 다 다른 변수
+        // 4) 한 단어로 이루어진 변수는 주로 소문자로 표시한다
+        // ex) current, age, sum, number
+        // 5) 두 단어 이상으로 이루어진 변수 > 언더바(_) 또는 대문자를 섞어서 사용한다
+        // ex) current_year / currentYear 이런식으로 사용한다
+        // 컴퓨터는 대문자 소문자를 아스키코드를 활용해서 숫자로 인식을 하기때문에 두개 구분을 함
+        // 아스키코드는 표현하는데 한계가 있기 때문에, 이를 보완해서 유니코드가 나옴
+        // 6) 자바 스크립트에서 미리 선점한 키워드(예약어) 변수로 사용 x
+
+        // let, var, const - 변수의 사용범위(스코프)
+
+        // var - 어디서든지 사용할 수 있는 변수 (선언을 나중에 해도 위에서 사용가능)
+
+        var test1 = 1;
+        console.log(test1);
+        console.log(typeof test1) //data type = number
+
+
+        //let 
+        let test2 = 2;  // 선언 하고 나서부터 사용이 가능함
+
+
+        //const > 상수 - 변하지않는 불변의 값, 한번 데이터 입력하고 나면 변경이 불가능하다
+
+        const test3 = 3;
+        // test3 = 5;
+        // 변수는 데이터 하나만 입력 가능하다
+
+        // 변수 사용 범위(스코프)
+        // 기본적으로 {}:중괄호 안에서 생성되고, 벗어나면 삭제된다 > 원칙  let은 중괄호 안에서 선언해놓고 밖으로 나오면 사라지는데, var는 중괄호 밖에서도 유지가 됨
+        // 원칙을 무시할 수 있는 변수 : var / 하지만 자주 사용하지 않는 이유가 있는데, 데이터가 꼬일 위험이 있기 때문
+        
+        {
+            let test4 =4;
+            var test5 =5;
+        }
+
+        console.log(test5);
+        // console.log(test4);
+        
+
+        // 변수 재사용 > 한번 만들어놓은 변수를 다시 사용한다는 소리
+
+        // num 1-4, str1-8
+
+        console.log("===변수 재활용===")
+        console.log(num);  //원래는 위에서 1로 잡아줬었음
+
+        num = 10;
+        console.log(num);
+
+        num = 15;
+        console.log(num);
+
+        num = "123";
+        console.log(num);
+        console.log(typeof num);
+
+        // 이런식으로 변수를 재활용하여 다른 값을 넣어줄 수 있다는 말
+
+
+
+    </script>
+</body>
+</html>
+
+<!-- 
+    
+    표현식 : 프로그래밍에서의 최소단위(단어, 데이터)
+    10
+    const
+    +  
+    문장 : 단어와 데이터등이 이루어져서 만들어짐
+
+    프로그램 : 여러개의 문장이 모여서 만들어짐
+
+    키워드(예약어) : 자바스크립트에서 미리 선점해놓은 단어들 > 키워드가 중요함
+
+    주석 : 현업에서도 많이 쓰고 중요함
+    
+    주석이 쓰이는 상황
+
+    1) 공부한 내용 간단히 표현할 때
+
+    2) 개발 시 해당 문법, 변수 등등 왜 만들었는지 간단 메모, 설명
+
+    출력 : 어떤값을 화면에 표시?
+
+    데이터, 내 코드가 잘 작동되고있는지 확인용으로 많이 사용하는 기능
+
+    
+    데이터의 종류
+
+    1) 원시형 데이터 타입
+
+    2) 참조형 데이터 타입
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-->

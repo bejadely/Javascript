@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // const year=Number(prompt("년도를 입력해주세요"));
+        // const month=Number(prompt("월을 입력하세요"));20
+
+        // if(year%4 == 0){
+        //     if((year%100) == 0 && (year%400) == 0){
+        //         console.log("윤년입니다.")
+        //     } else if((year%100 == 0 && (year%400) != 0)){
+        //         console.log("평년입니다")
+        //     }
+        // } else{
+        //     console.log("평년입니다.")
+        // }
+        
+        const year=Number(prompt("년도를 입력해주세요"));
+        const month=Number(prompt("월을 입력하세요"));
+
+        switch(month){
+            case: 1
+            case: 3
+            case: 5
+            case: 7
+            case: 8
+            case: 10
+            case: 12
+                days = 30;
+                break;
+            case: 4
+            case: 6
+            case: 9
+            case: 11
+                days = 31;
+                break;
+            case: 2
+                days = ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)) ? 29 : 28;
+        }
+    </script>
+</body>
+</html>
