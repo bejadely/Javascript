@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // "" ''= 문자, 문자열
+        // 문자 > 알파벳, 숫자, 한글 등등 한 개
+        // 문자열 > 문자 한 개 이상
+        // 문자열(string) 다루기
+        
+        
+        // 문자열 자르기(substring)
+
+        // 문자열.substring(시작위치, 자를곳(문자와 문자사이의 간격에서 자르는거기때문에 실제로 내가 생각했던 단어위치보다 한단계앞까지만 짤라준다))
+
+
+        // String() > 
+
+        let str = "김밥천국"
+        console.log(str.substring(1,2)) // 특정부위만 잘라서 보여주는것
+        console.log(str.substring(2)) // 해당위치부터 끝까지 보여줌
+
+        // 문자 위치 찾기
+        // indexOf(찾을 문자) > 위치를 안내해줌
+        let str2 = "hello world";
+        console.log(str2.indexOf("l"));
+        // indexOf(찾을문자, 시작위치)
+        console.log(str2.indexOf("l", 4));
+        // 존재하지 않는 값을 탐색하면 -1이 나온다
+        console.log(str2.indexOf("z", 4));
+
+        // 문자열 길이 구하는 명령문
+        console.log(str2.length);
+        // 공백까지 포함이다
+
+        // 소문자 > 대문자
+
+        console.log(str2.toUpperCase());
+
+        // 대문자 > 소문자
+        console.log(str2.toLowerCase());
+
+        // 문자열 끝자리의 문자가 입력값이 맞는지 아닌지 확인 / true/false로 나옴
+        console.log(str2.endsWith('d'));
+
+        // 구분자를 기준으로 문자 나누기.
+        // "1,2,3,4,5,6,7,8"
+
+        str = "hello,bye,java,power,book";
+        str2 = str.split(',');
+        console.log(str2);  // 여러개의 데이터를 나눠서 저장해줘야하기때문에, 원래 문자 형테의 데이터에서 배열이라는 오브젝트로 바꼈다
+
+        //문자열 반복 실행
+
+        for(let i=0; i<str.length; i++){
+            console.log(str.substring(i, i+1) + "위치는 " + (i+1) + " 번째입니다");
+        }
+
+        // 서버든 클라이언트든 담당할때 substring은 정말 잘써야하고, 자주 쓰인다
+
+        // 문자열을 활용한 반복문
+
+        // 숫자 하나를 입력을 받는다
+        // ex) 20
+        // 단 마지막자리가 3,6,9로 끝나면 *로 표시를 해준다.
+
+        let num = Number(prompt("숫자를 입력하세요."));
+
+        for(a=1; a<=num; a++){ //for > 반복해 로 생각하면 쉽다
+            str=String(a);
+            if(str.endsWith('3') || str.endsWith('6') || str.endsWith('9')){
+                // for(b=0; b<str.length; b++){
+                    str.substring(0, str.lenth-1);
+                    str += "*";
+                // }    
+            }
+            console.log(str);       
+        }
+
+        // 해당 인덱스의 문자 얻기
+        // hello
+        let str3 = "hello";
+        console.log(str3.charAt(1));
+
+        //문자열 뒤집기 문제
+        // reverse() 사용 금지
+        // charAt()
+        // hello > olleh
+
+        let str4 = "hello world";
+        result = "" // 변수 지정할 때 선언 잘 해주자
+    
+        for(a=str4.length; a>=0; a--){
+            // console.log(str4.charAt(a));  이게 내 답안
+            result += str4.charAt(a);
+        }
+        console.log(result);
+
+        //그래도 답에 거의 근접함 result += anything 이것의 개념을 잘 익히자
+    </script>
+</body>
+</html>

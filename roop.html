@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 반복문
+        // for문, while문, dowhile문
+        // for문, > 기본 for / for...in / for..of
+        // let result = result + 1;
+        // result = result + 1;
+        // result = result + 1;
+        // result = result + 1;
+        // 기본 for문
+        // for(let i = 1; i<=4; i++){ // 초기값, 조건, 증감문 순서
+            // i가 1일때
+            // i가 2일때
+            // i가 3일때
+            // i가 4일때
+            // result=result+i;
+        // }
+
+
+        // 1부터 10까지 더하는 연산
+
+        let sum = 0;
+
+        for(let num=1; num<=10; ++num){
+            sum = sum+num;
+            document.write(sum);
+        }
+        
+
+        // 여기서 for 문의 괄호안에 있는 변수는 해당 조건문이 끝나면 사라진다(임시변수)
+
+        //  1~100까지의 숫자 합을 구하는 반복문
+
+        for(i = 1; i<=100; i++){
+            sum = sum + i;
+        }
+
+        console.log(sum);
+
+        //1~100까지 수 중에서 짝수만 출력
+
+        for(i=1; i<=100; i++){
+            // console.log(i)
+            if(i%2 == 0){
+                console.log("짝수 : "+i+"입니다.");
+            }
+        }
+
+        // 1~100까지 수 중에서 홀수만 출력하는것
+
+        for(let i=1; i<=100; i++){
+            if(i%2 == 1){
+                console.log("홀수 : " + i + "입니다.")
+            }
+        }
+
+        for(let i=100; i>=1; i--){
+            if(i%2 == 1){
+                console.log(i)
+            }
+        }
+
+        // 반복문은 고정관념이 있으면 다양하게 변형시켜 풀기 어렵다
+
+        // 뇌를 말랑말랑하게 만들어주자
+
+        // 변수가 어떤 값까지 도달할때까지 사용할때 편하다고 생각하면 활용할 수 있는 범위가 더 다양해질듯
+
+        // 중간에 조건에 == 은 잘 쓰지 않음
+
+        // 팩토리얼
+
+        // 3! = 3 * 2 * 1
+
+
+        //내 풀이(해결?)
+
+        for(i=1; i<3; i++){
+            fac=(i+1)*i
+        }
+        console.log(fac);
+
+
+
+        // 또다르게 시도한 풀이
+        // let count = Number(prompt("팩토리얼하고자 하는 수를 넣어주세요."))
+
+        // for(i=1; i<count; i++){
+        //     i = (i+1)*i;
+        // }
+        
+        // console.log(i);
+        
+        // 구구단
+        // 2단 출력하는 반복문
+        // 2*1 = 2
+        // ...
+        // 2*9 = 18
+
+        // 내풀이(해결)
+        for(a=1; a<=9; ++a){ //a는 1이고, a=9일때까지 ++a를 해준다고 이해하면 되겠지
+            res = 2*a;
+            console.log("2 X " + a + " = "+ res + " 입니다.")
+        }
+
+        // 교수님 풀이
+
+        // for(let i=1; i<=9; 1++){
+        //     console.log("2*"+i+"="+(2*i));
+        // }
+
+        // 입력 받은 수까지 합 구하기
+        // 입력 > 50
+        // 1~50까지의 합
+
+        let no = Number(prompt("숫자 입력"));
+        sum = 0;
+        for(let i=1; i<=no; i++){
+            sum += i;
+        }
+        console.log(sum);
+
+        // 이중 for문, 중첩 for문
+        // for(){
+        //     for(){
+
+        //     }
+        // }
+
+        // for문은 }까지 만나야 다시 올라가서 두번재 반복을 실행한다, 그전에 for를 다시 만나면 그 안에 있는 for부터 실행하게 되겠지
+
+        // 두개의 주사위의 합이 6이 되는 모든 경우 출력
+        
+
+        // 내풀이(해결) (교수님 답안과 같음)
+        for(a=1; a<=6; a++){
+            for(b=1; b<=6; b++){
+                if(a+b == 6){
+                    console.log("주사위 A, B의 값이 각각 "+a+"와(과)"+b);
+                }
+            }
+        }
+
+        // 2~9단 출력하기
+        //  2단이었을때 2x1 = 2 ... 2x2 = 9
+
+
+        // 내풀이(교수님 답안과 같음)
+        for(a=2; a<=9; a++){
+            for(b=1; b<=9; b++){
+                console.log(a + " X " + b + " = " + a*b);
+            }
+        }
+
+        // 별찍기
+        // *****
+        // *****
+        // *****
+        // *****
+        // *****
+
+        // 만들어보삼
+
+        let star = "";
+        for(let a=1; a<=5; a++){
+            for(let b=1; b<=5; b++){
+                star = star+"*"; //b가 1 ~ 5가 될때까지 *을 하나씩 추가해라
+            }
+            star += "\n"; // 이 작업이 끝나면 이줄에서 줄바꿈한번해라
+        }
+        console.log(star);
+
+        star=""; // 오 변수가 이미 지정되있던걸 비워줄땐 앞에 let 안써야한다
+        for(let a=1; a<=5; a++){
+            for(let b=1; b<=a; b++){
+                star += "*";
+            }
+            star += "\n";
+        }
+        console.log(star);
+
+        star=""; // 오 변수가 이미 지정되있던걸 비워줄땐 앞에 let 안써야한다
+        for(let a=1; a<=5; a++){
+            for(let b=5; b>=a; b--){ //중간값은 처음 설정한 변수부터 몇번째까지 반복해줄지를 결정해준다고 생각하면 쉬움
+                star += "*";
+            }
+            star += "\n";
+        }
+        console.log(star);
+
+        
+
+        // 내풀이 + 동료 답안 결합
+
+        blank=""
+
+        for(a=1; a<=5; a++){
+            for(b=1; b<a; b++){
+                blank += " "    
+            }
+            for(c=5; c>=a; c--){
+                    blank += "*"
+                }
+            blank += "\n"
+        }
+        
+        console.log(blank)
+
+        // 해당문제 교수님 답안은 나중에 답안 올려준느거 보고 하자
+        
+
+    </script>
+</body>
+</html>

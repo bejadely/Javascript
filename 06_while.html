@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // while문
+        // while(조건){}  // (조건):true 이면 반복 / false면 종료
+        // for구문은 조건이 명확할때 자주 사용(종료 시점이 명확한 경우) / while은 종료시점을 우리가 개입해서 입력해줄때 자주 사용
+
+        let sum = 0;
+        while(sum <10){
+            sum = sum + 1;
+            console.log(sum);
+        }
+        console.log("escape the while syntax")
+
+        let flag = true; // 중단 방법 1
+        sum = 0;
+        while(flag){
+            sum = sum + 1;
+            if(sum == 10){
+                break;
+            }
+        }
+
+        flag = true; // 중단 방법 2
+        sum = 0;
+        while(flag){
+            sum = sum + 1;
+            if(sum == 10){
+                flag=false;
+            }
+        }
+
+        // 예제 : 1~100까지의 수 중에서 짝수만 출력
+
+        let even = 0;
+        while(even <= 100){
+            if(even % 2 == 0 && even != 0){
+                console.log("1~100사이의 수 중에서 짝수는 : " + even);
+            }
+            even++;
+        }
+
+        // 구구단
+
+        let gugudan = 2;
+        let num = 1;
+        while(num <= 9){
+            console.log(gugudan + "*" + num + "=" + (gugudan*num));
+            num++;
+        }
+
+        // do-while
+        // do{ 실행할 내용 } while()
+
+        // 일단 한번 실행한 후 조건을 확인하기 시작함  // 일단해 // 나이키같은 친구네
+
+        sum = 0;
+        do{
+            sum=sum+1;
+        } while(sum<1);
+
+
+
+
+        // 1~100까지의 숫자를 구해보는 do~while 구문
+
+        let temp = 1;
+        do{
+            console.log(temp);
+            temp++;
+        }while(temp<=100);
+        console.log(temp);
+
+        // break, continue
+
+        // 반복문을 제어할 때 사용하는 명령어들
+
+        sum = 0;
+        while(true){
+            sum = sum + 5;
+            if(sum == 10){
+                console.log("break 종료");
+                break; //if문에서의 break문은 while까지 종료를 시킬 수 있지만, switch문의 break는 switch 안에 종속되어있기 때문에, switch문만 종료시키지, 상위의 조건문인 while문은 종료시키지 못한다
+            }
+        }
+
+
+        for(let i = 1; i<=10; i++){
+            console.log(i);
+            if(i == 5){
+                break;
+            }
+        }
+
+
+        // continue 계속 반ㄴㄴㄴㄴㄴㄴ복해라
+
+        for(let i=1; i<=10; i++){
+            if(i%2 == 1){  //홀수번째 애들은 console.log를 건너뛰고 다시 for가 실행됨 / 짝수인 값만 나오는거임
+                continue; // continue는 for문의 } 역할을 하기 때문에 다시 for문으로 올라가게되므로, 밑에 있는 console.log가 실행되지 않는것임
+            }
+            console.log(i);
+        }
+
+
+        // 원래의 while문은 조건먼저 확인하고 충족하면 do를 실행하는거였는데 // do while은 그 순서를 바꾼 것
+        
+    </script>
+</body>
+</html>
