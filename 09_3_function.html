@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 콜백 함수
+        // 매개 변수로 함수가 들어가는 형태를 의미한다
+
+        function callThreeTimes(callback){ //함수안에 함수를 매개변수로 넣어준다
+            for(let i=0; i<3; i++){
+                callback(i);
+            }
+        }
+
+        function print(a){ //유의할 점은 위의 콜백 함수를 실행할때, print()함수가 완벽히 완료가 되어야한다.(이를 동기라고 함)
+            console.log(`${a}번째 함수 호출`);
+        }
+        
+        callThreeTimes(print);
+
+        // 함수를 여러번 반복할때 편하겠네
+
+        // 또는 어떤 기능을 만들고싶은데 해당 함수도 실행되어야할때
+
+        // (중요)콜백함수의 매개변수로 익명함수를 넣어주는 방법도 있음
+
+        callThreeTimes(function(e){console.log(`${e} 번째 함수 호출`);}) //함수를 넣을때 이미 만들어진 함수를 쓰는게 아니라, 그자리에서 직접 함수를 만들어서 넣어주는것
+
+        // 즉석에서 만든 함수를 지정한 시작점부터 여러번 반복할때 쓴다 생각하면 편하겠지?
+
+        // 얘를 많이 쓰는 이유가 있음
+        // 배열에서 얘를 많이 씀
+
+        //foreach, map, filter 이 세가지 함수가 많이 쓰임
+
+        // foreach > 1) 배열에 데이터가 존재하는 만큼 반복하는 함수
+        //         > 2) value : 각 인덱스의 데이터
+        //              index : 배열 인덱스 
+        //              array : 배열 모든 데이터 
+
+        let numbers = [273,52,103,32,57];
+
+
+        //  forEach, map, filter 메소드는 매개변수가 세가진데, 그중 원하는것만 뽑아서 사용하면 됨
+
+        numbers.forEach(function(el, idx, ary){
+            console.log(`${idx}번째 요소 : ${el}`); // 각 배열의 데이터나 인덱스 하나하나 쓸때 사용
+            console.log(`forEach의 ary : ${ary}`); // ary는 모든 데이터 불러와서 쓸때 사용하겠지?
+        })
+
+        for(let i=0; i<numbers.length; i++){
+            console.log(`${i}번째 요소 : ${numbers[i]}`); //위의 콜백함수와 기능이 같음
+            
+        }
+
+        // map
+        // return값을 기반으로 새로운 배열을 만들어준다
+        // let numbers = [273,52,103,32,57]
+
+        numbers = numbers.map(function(el, idx, ary){
+            return el*el;
+        })
+
+        console.log(numbers)
+
+        // filter
+
+        // return 값이 true인것만 모아서 새로운 배열을 생성한다
+        // return에 적혀있는 조건문에 만족하는 데이터를 가지고 새로운 배열을 만들어낸다.
+
+        // 유용하겠네
+
+        const number = [0,1,2,3,4,5];
+        const evenNumber = number.filter(function(el){
+            return el % 2 == 0; // 이 값이 트루인것만 모아서 새로 배열 형성해 주는거임
+        })
+
+        console.log(`원래 배열 : ${number}`);
+        console.log(`짝수만 추출(filter 사용) : ${evenNumber}`);
+
+        // 화살표 함수
+        // 형태는 아래와 같다
+        
+        // 코드가 두줄 이상 넘어갈때
+        // ()=>{
+
+        // }
+
+        // or
+        
+        // 코드가 한줄일때 자주 사용
+        // ()=> return 데이터
+
+        const array = [0,1,2,3,4,5,6,7,8,9]
+
+        array.map((value)=>value*value);
+
+        numbers.map(function(el, idx, ary){
+            return el*el;
+        })
+
+        //두개의 함수가 같은 내용임
+
+        array.forEach((el)=>{
+            console.log(el);
+        })
+
+
+        // 메소드 체이닝 > 함수에 함수에 함수를 걸어서 동작시킴?
+
+        array
+        .filter((value)=> value % 2 == 0) //걸어준 함수 순서대로 위에서 처리한값을 바탕으로 계속 함수를 실행하는거임
+        .map((value)=> value*value)
+        .forEach((value)=>{
+            console.log(value);
+        })
+
+
+        // setTimeout > 특정 시간 후에 작동하게 하는것
+        // setInterval > 특정 시간마다 작동
+
+        setTimeout(()=> // ()=> 이게 function(){}하고 같은거란거지? // function 글자 지우고 ()랑 {}사이에 화살표 넣어준거네
+        console.log("1초 후에 실행됩니다."), 1*1000); //1000 곱해준 이유는 기본값이 1/1000초로 설정되어있기 때문
+
+        let count = 0;
+        id = 
+        setInterval(()=>{
+            console.log(`1초마다 실행됩니다 ${count}번째`);
+            count++;
+        }, 1*1000)
+
+        //clearInterval
+        count = 0;
+
+
+        setTimeout(()=>{
+            console.log("타이머 종료");
+            clearInterval(id);
+        }, 5*1000)
+
+        // filter 함수 활용
+
+        let no = [273,25,75,52,103,32,57,25,76]
+
+        // 1) 홀수만 추출(추출해라 했지 출력하라 안했음 ㅋㅋㅋ;;)
+
+        // 2) 100이하 수만 추출
+
+        // 3) 5로 나눈 나머지가 0인 수
+
+        // 내답안으로 해결 완료
+
+        addnumber = no.filter((value)=>{
+            return value % 2 == 1
+        })
+
+        console.log(`이중에서 홀수인 수는 : ${addnumber}`)
+
+        underonehun = no.filter((value2)=>{
+            return value2 <= 100
+        })
+
+        console.log(`100 이하인 수는 : ${underonehun}`)
+
+        subfive = no.filter((value3)=>{
+            return value3 % 5 == 0
+        })
+
+        console.log(`5로 나눈 나머지가 0인 수는 : ${subfive}`)
+
+
+;    </script>
+</body>
+</html>

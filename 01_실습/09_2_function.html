@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //나머지 매개변수
+        //매개변수가 몇개인지 모를때
+        // function 함수명(...매개변수){
+        // }
+
+        function sum(...items){
+            console.log(items);
+            let sum = 0;
+            for(let i=0; i<items.length; i++){
+                sum += items[i];
+            }
+            console.log(`${items}의 총 합계 : ${sum}`);
+        }
+        sum(1,2,3,4);
+        sum(1,2);
+
+        function min(...array){
+            let output = array[0];
+            for(let i=1; i<array.length; i++){
+                if(output > array[i]){
+                    output = array[i];
+                }
+            }
+            return output;
+        }   
+
+        console.log(
+            `min(1,2,6,7,0,2,10)의 최소값 : ${min(1,2,6,7,0,2,10)}입니다.`
+            );
+
+        //나머지 매개변수 & 일반 매개변수 조합
+        mininum(1,2,3,4,5);
+        mininum([1,2,3,4,5,0]);
+        function mininum(first,...rests){
+            let output;
+            let items;
+
+            //매개변수 타입에 다른 조건문
+            if(Array.isArray(first)){
+                output = first[0];
+                items = first;
+            } else if(typeof(first) == 'number'){
+                output = first;
+                items = rests;
+            }
+
+            for(let i=1; i<items.length; i++){
+                if(output > items[i]){
+                    output = items[i];
+                }
+            }
+            return output;
+        }
+
+        //전개 연산자
+        //나머지 매개변수 -> 1,2,3,4,5 -> 배열
+        //나머지 매개변수 -> [1,2,3,4,5] -> ?
+
+        function temp(...spread){
+            console.log(spread);
+        }
+        console.log("===전개 연산자===");
+        let noAry = [1,2,3,4,5];
+        temp(noAry);
+        temp(...noAry);
+
+        //기본 매개변수
+        //매개변수로 데이터를 전달하지 않아도 가지는 기본값(default)
+        function earning(name, wage=8500, hours=40){
+            console.log(`# ${name} 님의 급여 정보`);
+            console.log(`- 시급 : ${wage}원`);
+            console.log(`- 근무 시간 : ${hours}시간`);
+            console.log(`- 급여 : ${wage * hours}원`);
+            console.log('');
+        }
+
+        earning('구름');
+        earning('별',10000);
+        earning('달', 10000,52);
+
+    </script>
+</body>
+</html>
