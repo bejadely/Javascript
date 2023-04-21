@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="txtName">
+    <button type="button">버튼</button>
+    <script>
+        // btn DOM 가져옴.
+        let btn = document.querySelector('button');
+
+        // btn event add
+
+        btn.addEventListener('click', Fncbtn)
+        btn.addEventListener('mouseover', Fncbtn2)
+
+        // 하나의 요소에 여러가지 이벤트에 맞는 기능들을 발생시킬 수 있음
+
+        function Fncbtn(){
+            alert('버튼 클릭함.1');
+        }
+        
+        function Fncbtn2(){
+            console.log('버튼 클릭함.2');
+        }
+
+        let txtName = document.getElementById('txtName');
+        // txtName.addEventListener('mouseover', Fncbtn);
+        // txtName.addEventListener('mouseout', Fncbtn2);
+
+        function fncTxt(){
+            txtName.style.background = 'blue'
+        }
+
+        function fncTxt2(){
+            txtName.style.background = 'yellow'
+        }
+
+        txtName.addEventListener('mouseover', fncTxt);
+        txtName.addEventListener('mouseout', fncTxt2);
+
+        txtName.addEventListener('change', fncChange);
+
+        function fncChange(){
+            console.log("변경됨"); // change는 내용이 변경되는걸 감지하는 이벤트
+        }
+
+        
+    </script>
+</body>
+</html>

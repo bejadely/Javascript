@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <p>테스트1</p>
+        <p>테스트2</p>
+        <p>테스트3</p>
+        <p>테스트4</p>
+        <p>테스트5</p>
+        <button type="button" onclick="pInfo()">클릭</button>
+    </div>
+    <script>
+        console.log("기능테스트")
+        function pInfo(){
+            console.log(event.target.parentNode.children[0].textContent); //event.target하면 이벤트를 발생시킨 주체를 찾을 수 있음
+        }
+
+        // DOM + 반복문
+    </script>
+</body>
+</html>

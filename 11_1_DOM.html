@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .red{
+            background-color: red;
+        }
+
+    </style>
+</head>
+
+<body>
+    <h1>타이틀</h1>    
+    
+    <div id="app">
+        <ul id="my-list">
+            <li class="list">리스트1</li>
+            <li class="list">리스트2</li>
+            <li class="list">리스트3</li>
+        </ul>
+        <span id="child">짤린 곳이다</span>
+        <img src="도라에몽.jpg" alt="불러올 수 없습니다">
+
+    </div>
+
+    
+    <script>
+        let myBox = document.querySelector('ul'); // 태그 자체를 가져오는데, 있는 ul 태그 다 들고옴
+        let list = document.getElementById('my-list');
+
+        let lists = document.querySelector('#my-list .list:nth-child(1)');
+        console.log(lists);
+
+        console.log(document.querySelectorAll('ul > li'))
+
+        let tagList = document.getElementsByTagName('li');
+        console.log(tagList);
+
+
+        // querySelector 이건 선택자로 뽑아오는 개념인데, 태그든 id든, style에 사용할 수 있는 선택자처럼 모두 사용 가능하다 생각하면 편하겠다
+
+
+        // DOM 생성
+        
+        let makeP = document.createElement('p');  //element는 태그를 의미?
+        makeP.textContent = 'p element입니다.';
+        console.log(makeP);
+
+        let select1 = document.getElementById('app');  //select1은 app id의 요소를 불러오는 함수
+        select1.appendChild(makeP); // appendChild는 해당 함수에 들어가는 매개변수를 자식으로 (맨 마지막 위치에)붙인다는 뜻
+
+        //prepend
+        //append
+
+        let p = document.createElement('p');
+        p.textContent = '첫번째';
+        let p2 = document.createElement('p');
+        p2.textContent = '두번째';
+        let p3 = document.createElement('input');
+        p3.value = '세번째';  //각 태그의 속성에 맞게 입력하는 방법을 선택하고, 입력값을 넣어주면 된다
+        
+        select1.prepend(p);
+        select1.append(p2, p3);
+        select1.append(p3, p2);
+        
+        
+        //DOM 삭제
+
+        let span = document.getElementById('child');
+        select1.removeChild(span); // app id를 불러온 다음에 체인 활용해서 그 id에 해당하는 요소에서 스팬을 지운것
+
+
+
+        //img DOM 생성
+
+        let makeImgTag = document.createElement('img');
+        makeImgTag.setAttribute('src', '도라에몽.jpg') //첫번재 매개변수에 두번째 매개변수를 속성값으로 넣어줌
+        makeImgTag.setAttribute('alt', '헉') //첫번재 매개변수에 두번째 매개변수를 속성값으로 넣어줌
+        makeImgTag.setAttribute('width', '300px') //첫번재 매개변수에 두번째 매개변수를 속성값으로 넣어줌
+
+
+        console.log(makeImgTag);  // 아 메소드를 체인시켜 버리면, 해당 메소드 자체가 체인에 달려있는값인 상태로 진화되는구나
+
+
+        // a DOM 생성
+
+        let makeATag = document.createElement('a');
+        makeATag.setAttribute('href', 'https://naver.com');
+        makeATag.style.color = 'red';
+        makeATag.textContent= "네이버로 이동";
+
+        select1.appendChild(makeATag);
+
+
+        // 속성, 텍스트 읽기
+
+        let divChild = document.querySelector("#app :nth-child(6)");
+        console.log(divChild)
+
+
+        ///////////// 해당부분 누락된 필기 다시 검토할 것 ////////////////////
+
+        //class 속성을 부여
+
+        //classList.add
+        //className
+
+        // toggle > 하나의 스위치와 같은 역할
+        // class가 있다 > 삭제
+        // class가 없다 > 추가
+        // 클래스 뿐 아니라 id가 있으면 삭제, 없으면 추가
+
+        // 이런식으로 데이터가 있으면 삭제, 없으면 추가
+
+        // divChild2.classList.toggle('red') > 아직 사용 못함 / divChild2 놓쳤음
+
+        
+        // 이벤트 발생시 어떤 요소들이 작동하게끔 하는것 > 이제 자바 스크립트의 본격적인 내용 스타트
+
+        
+    </script>
+</body>
+</html>

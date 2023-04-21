@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- form tag -->
+    <form action="12_2_eventTarget.html" id="form" onsubmit="return fnSubmit()">
+    <label>이름<input type="text" id="userId" name="userId"></label>
+    <button>확인</button>
+    </form>
+    <script>
+        // 어려운 내용 아니다
+
+        // input 태그에 데이터가 있는지 없는지 확인하고
+
+        // 데이터가 있으면 페이지 이동, 데이터가 없으면 페이지 이동 X
+
+        //onsubmit은 내가 원하는 상황이 나오면 페이지를 이동시켜주고, 아닌경우엔 그대로 놔두게 하는것
+
+        // 이제 슬슬 유용한 기능들 많이 나오기 시작함
+
+
+        function fnSubmit(){
+            alert('제출되었습니다.')
+            let txt = document.getElementById('userId');
+
+            if(txt.value == ''){
+                console.log('no data');
+                return false;
+            } else{
+                return true;
+            }
+        }
+
+
+        // form태그에 onsubmit 안넣고 실행하는법
+
+        let form = document.getElementById('form');
+        form.onsubmit = function(){
+            let txt = document.getElementById('userId');
+
+            if(txt.value == ''){
+                console.log('no data');
+                return false;
+            } else{
+                return true;
+            }
+        }
+
+
+    </script>
+
+    <a href="https://naver.com" id="abtn" target="_blank" onclick="fnA()">네이버로</a>
+    <button type="button" id="btn">button</button>
+
+    <script>
+        // let aTag = document.getElementById('abtn');
+
+        // aTag.onclick = function(){
+        //     if(!confirm("이동하시겠습니까?")){
+        //         event.preventDefault(); // 이벤트 중지 > 클릭이라는 이벤트가 발생했을때 a태그는 적어놓은 소스로 이동시키는 기능의 태근데, 그 클릭이라는 이벤트를 중지시켰다는 말
+        //     }
+        // }
+
+        function fnA(){
+          
+            if(!confirm("이동하시겠습니까?")){
+                event.preventDefault(); // 이벤트 중지 > 클릭이라는 이벤트가 발생했을때 a태그는 적어놓은 소스로 이동시키는 기능의 태근데, 그 클릭이라는 이벤트를 중지시켰다는 말
+            }
+          
+        }
+    </script>
+
+</body>
+</html>

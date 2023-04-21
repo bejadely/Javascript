@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+          *{
+        font-family: sans-serif;
+    }
+    #list{
+        border: 1px dotted green;
+        text-align: left;
+        font-size: 20px;
+        background-color: beige;
+        color: green;
+        width: 63.5vw;
+    }
+    #history{
+        margin-top: 30px;
+        border: 1px dotted white;
+        text-align: left;
+        font-size: 20px;
+        background-color: gray;
+        color: white;
+        width: 63.5vw;
+    }
+    button{
+        background-color: black;
+        color: white;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    p{
+        font-size : 15px;
+    }
+
+    
+    </style>
+</head>
+<body>
+    <h1>To Do List</h1>
+    <input type="text" id="doList" name="doList" style="width : 50vw">
+    <button type="button" onclick="saveList()">등록</button>
+    <button type="button" onclick="deleteItem()">선택삭제</button>
+    <br>
+    <br>
+    <h2>DO LIST</h2>
+    <!-- 해야할 목록 -->
+    <div id="list">
+        
+
+    </div>
+
+    <h2>HISTORY</h2>
+    <!-- 진행한 목록 -->
+    <div id="history">
+
+    </div>
+    <script>
+        function deleteItem(){
+            let ckb = document.querySelectorAll('input[type=checkbox]:checked')
+            //기본 반복문
+            for(let i=0; i<ckb.length; i++){
+                ckb[i].parentNode.remove();
+            }
+
+            // //for ..of > 데이터를 가져오는거고
+            // for(let i of ckb){
+            //     i.parentNode.remove();
+            // }
+            // //for ..in > 인덱스를 가져오는거임
+            // for(let i in ckb){
+            //     ckb[i].parentNode.remove();
+            // }
+        }
+        
+        function saveList(){
+            // input DOM 가져오기
+            let doList = document.getElementById('doList');
+
+            let p = document.createElement('p');
+            p.textContent = doList.value;
+
+            let ckb = document.createElement('input');
+            ckb.setAttribute('type', 'checkbox')
+            // <p><input type="checkbox">doList.value</p>
+            p.prepend(ckb);
+
+            let btn = document.createElement('button');
+            btn.textContent = '완료';
+            // 속성 추가
+            p.appendChild(btn);
+
+
+
+            // 해야할 목록 
+            let list = document.getElementById('list');
+            // 해야할 목록 추가
+            list.appendChild(p);
+
+            // 속성 추가 : do List > history로 이동
+
+            btn.setAttribute('onclick', "move()");
+            btn.setAttribute('type', "button");
+
+
+        }
+        function checkedToggle(ckb){
+            // 찾고자 하는 checkbox
+            // console.log(ckb.parentNode.children[0]); 이렇게 찾음
+            ckb.parentNode.children[0].checked = false;
+        }
+
+        function move(){
+            checkedToggle(event.target); // 요런 방법이 있다는 것
+            let history = document.getElementById('history')
+            event.target.textContent = "초기화";
+            history.appendChild(event.target.parentNode); // 버튼의 부모인 p태그를 history아이디의 자식으로 넣어준다
+            event.target.setAttribute('onclick', 'before()')
+            //오 내가 생각했던게 맞네, 함수를 다른 함수로 바꿔주는거임
+        }
+        function before(){
+            checkedToggle(event.target);
+            let list = document.getElementById('list');
+            event.target.setAttribute('onclick', 'move()');
+            event.target.textContent = '완료';
+            list.appendChild(event.target.parentNode);
+
+            // 만약에 원래 있던 자리로 다시 오게 하려면 어떻게 하면 좋을까?
+
+            // 내가 원하는 돔찾는 연습은 시간 조급하게 생각하지 말고 차근차근 해보면 좋음 / 한번만에 찾으려 하지말고 상위단계에서 천천히 찾아봐도됨
+        }
+    </script>
+</body>
+</html>

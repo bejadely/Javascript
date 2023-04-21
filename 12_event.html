@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        // 브라우저 페이지가 다 로딩되고 나서 수행해야 할 내용을 정의하는 것
+        // DOMContentLoaded 자주 쓰는 경우
+        // 1) 시멘틱 웹 구조에서 각 영역마다 프로그램을 따로 넣어서 구동한다고 할때, 추후에 로딩되는 부분의 어떤 DOM 요소를 가져와서 쓸 일이 있을때, 로드 순서에 상관없이 사용 가능하게 하기 위해 많이 쓴다
+        // 2) 통신할때도 많이 사용한다
+
+        document.addEventListener('DOMContentLoaded',()=>{
+            let h1 = document.createElement('h1');
+            h1.textContent = '페이지가 로딩되고 나서 추가된 구문임';
+            document.body.append(h1);
+            document.body.style.color="green";
+        })
+    </script>
+
+    <section id="section-sample">
+        <div id="sample">
+            <input type="button" value="클릭">
+        </div>
+    </section>
+
+    <script>
+        // 이벤트의 종류는 다양한데 그 중 두가지를 활용해볼것임
+
+        // addEventListner  
+        // tag를 선택하면 > 이벤트 > 어떠한 이벤트를 추가하겠다.
+
+        // 쓰는법 DOM객체.addEventListner('이벤트 종류, 함수');
+
+
+        // onclick > 클릭했을때 뭐할거냐
+
+        // <tag onclick="a()"> 이런식으로 해당 태그를 클릭하면, 함수가 작동하게끔 자주 사용함
+
+        
+
+        // 이벤트 만들기 1
+
+        let btn = document.querySelector('#sample>input[type="button"]'); //type이 버튼 태그인애만 가져와
+
+        console.log(btn)
+
+        btn.addEventListener('click', ()=> { //여기도 역시 메소드 체인을 활용
+            //p태그
+            let pTag = document.createElement('p');
+            pTag.textContent = "p 태그 생성";
+            //div DOM 선택 후 p태그 추가
+            let div = document.getElementById('sample');
+            div.append(pTag);
+        })
+
+        // DOMContentLoaded 이것도 이벤트 종류 중 하나 > DOM객체가 만들어지고 나서 > DOM객체가 브라우저에 다 그려지고 나서
+
+        // 
+
+        // 두번째 방법은 위에서 만들어놨던 함수를 바로 인라인 안에 집어 넣어서 활용 가능
+
+        
+
+        
+    </script>
+</body>
+</html>

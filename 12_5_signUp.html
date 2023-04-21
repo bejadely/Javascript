@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            /* float: left; */
+            width : 800px
+        }
+        label{
+            width: 150px;
+        }
+    </style>
+</head>
+<body>
+    <label>아이디 : <input type="text" id="id" name="name" placeholder="아이디를 입력하세요(10자 이상)"></label>
+    <br>
+    <button type="button" id="btn" onclick="confirmInfo()" value="N">아이디 확인</button>
+    <label>비밀번호 : <input type="password" id="pw" name="pw" ></label> <!-- 비번은 !들어가면 안됨 -->
+    <br>
+    <button type="button" id="pwBtn" onclick="confirmInfo()" value="N">비밀번호 확인</button>
+    <br>
+    <label>주소지 : <input type="text" id="addr" name="addr" placeholder="대구 거주자만 입력 가능"></label>
+    <button type="button" id="addrCheck" name="addrCheck" onclick="addrInfo()" value="N">주소지 확인</button>
+    <br>
+    <br>
+    <button type="button" id="saveBtn" onclick="saveInfo()">회원가입</button>
+    <div id="app" style="border: 2px dotted purple"></div>
+
+
+    <script>
+
+        //주소지 입력창 만들기
+        //내가 쓴 답안 > 아쉬웠던점은 버튼에 이벤트 발생, 함수 대입 안한것
+        function saveInfo(){
+
+            // 각 데이터들이 조건에 만족하는지 확인해보기
+
+            let btnList = document.querySelectorAll('button');
+            console.log(btnList);
+            
+            //3개의 버튼
+            if(btnList[0].value == 'N'){
+                alert('ID 확인하세요');
+                return; //return 뒤에 아무것도 없이 단독으로 쓰면, 함수 강제종료
+            } else if(btnList[1].value == 'N'){
+                alert('비밀번호를 확인하세요?')
+            } else if(btnList[2].value == 'N'){
+                alert('주소를 확인하세요')
+            } else {
+                alert('데이터 확인 완료')
+            }
+
+
+            // 1) 각각의 input 있는 value를 가져와야함
+            let id = document.getElementById('id').value;
+            let pw = document.getElementById('pw').value;
+            let addr = document.getElementById('addr').value;
+            
+            
+            // 2) 가져온 value span에 생성해서 데이터 입력
+            let span = document.createElement('span');
+            span.innerHTML = `${id} ${pw} ${addr}`;
+            
+            // 3) span >  임의 태그에 append 시켜서 목록 view 해줌
+            
+            document.getElementById('app').append(span);
+            
+            // 4) 추가된 정보를 삭제하는 버튼 추가
+            let btn = document.createElement('button');
+            btn.innerHTML = `삭제`;
+            btn.setAttribute('onclick', 'removeBtn()')
+            document.getElementById('app').append(btn);
+            
+            // 5) br 추가
+
+            let br = document.createElement('br');
+            document.getElementById('app').append(br);
+
+            // 데이터 삭제
+            document.getElementById('id').value = '';
+            document.getElementById('pw').value = '';
+            document.getElementById('addr').value = '';
+
+            }
+        
+        
+            // remove버튼 기능 넣기
+        function removeBtn(){
+                console.log(event.target.nextElementSibling); //이렇게 찾아놓고 안에 있는 내용 끌어내면 된다
+                console.log(event.target.previousElementSibling);
+
+                
+                event.target.nextElementSibling.remove() // 클릭한 버튼을 기준으로 다음 위치에 있는 DOM 삭제
+                event.target.previousElementSibling.remove() // 클릭한 버튼을 기준으로 이전위치에 있는 DOM 삭제
+                event.target.remove() //이벤트가 발생한 그 원인인 요소 삭제
+
+
+
+
+            }
+
+
+        function addrInfo(){
+            let addrtag = document.getElementById('addr');
+            let addrStr = String(addrtag.value).substring(0, 5);
+            console.log(addrStr);
+
+            if(addrStr == ''){
+                alert('주소지를 입력하지 않으셨습니다.')
+                addrtag.focus();
+            } else{
+                if(addrStr == '대구광역시'){
+                    alert('거주지가 대구임을 확인하였습니다.')
+                    event.target.value = 'Y';
+
+                } else{
+                alert('죄송하지만 거주지가 대구가 아닙니다.');
+                addrtag.focus();
+                } 
+            }
+        }
+
+        // 두번째 방법
+        // indexOf를 사용하는 방법은 좀있다 정현이형님꺼 봅시다 ㅎㅎ
+
+        
+        
+
+       function pwInfo(){
+        let pw = document.getElementById('pw');
+        let pwStr = pw.value;
+
+        if(pwStr == ""){
+            alert("비밀번호 미입력");
+            pw.focus();
+        } else{
+            //비밀번호에 ! 포함돼 있으면 사용 불가
+            //indexof
+
+            if(pwStr.indexof('!'>=0)){ //여기에 !가 있으면 무조건 0 이상 / 없으면 -1
+                alert(`!가 존재합니다. 다시 입력하세요`);
+                pw.value = "";
+                pw.focus();
+            } else{
+                alert(`사용가능한 비밀번호`)
+                event.target.value = 'Y';
+
+            }
+        }
+       }
+       
+       
+       function confirmInfo(){
+            // input id
+            let id = document.getElementById('id');
+            // id 길이 체크
+            let str = id.value;
+
+            if(str == ""){
+                alert('아이디가 입력되지 않았습니다')
+                id.focus();
+            } else{
+                //아이디를 10글자 이상 입력
+                if(str.length >= 10){
+                    alert('사용할 수 있음');
+                    document.getElementById('pw').focus(); // 메소드 체이닝을 활용해서 id가 pw에 해당하는 요소를 가져온 후 거기에 포커스를 맞추게함
+                    id.readOnly = true;
+                    event.target.disabled = true; //?
+                    //btn의 value N > Y
+                    event.target.value = 'Y';
+                } else{
+                    alert('사용할 수 없음');
+                    id.value="";  // 사용할 수 없으니 다시 입력유도하게 데이터를 비워줌
+                    id.focus()
+                }
+            }
+        }
+    </script>
+</body>
+</html>
