@@ -178,15 +178,23 @@
         // 입력한 숫자의 팩토리얼 구하기
         
 
-        let facNum = window.prompt(`팩토리얼 해드리겠습니다`);
-        // facResult = null; // null값에 연산을 하면 1이 되어버리나보다
-        facResult = 1;
+        // let facNum = window.prompt(`팩토리얼 해드리겠습니다`);
+        // // facResult = null; // null값에 연산을 하면 1이 되어버리나보다
+        // facResult = 1;
 
-        for(a=1; a<=facNum ;a++){
-            // facResult *= a; // 해결해 버렸다리~~
-            facResult = facResult * a; // 둘다 가능
+        // for(a=1; a<=facNum ;a++){
+        //     // facResult *= a; // 해결해 버렸다리~~
+        //     facResult = facResult * a; // 둘다 가능
+        // }
+        // alert(facResult);
+
+        // 2~9단 출력하기
+
+        for(a=2; a<=9; a++){ 
+            for(b=1; b<=9; b++){ // 여기서 새로 들어갈때 a는 맨처음 값인 a=2로 고정이 되어있다고 생각하면 편함
+                console.log(`${a} X ${b} = ${a*b}입니다.`)
+            } 
         }
-        alert(facResult);
     </script>
 </body>
 </html>
