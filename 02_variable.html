@@ -10,7 +10,7 @@
     <script>
         console.log('안녕'); /* 문장 */
         console.log("==var test=="); 
-        console.log(test1) //test1 변수 지정을 이 문장보다 아래에서 지정을 해줬는데도 일단 undefined값으로 나온다
+        console.log(test1) //test1 변수 지정을 이 문장보다 아래에서 지정을 해줬을땐 undefined값으로 나온다
         // 원시형 데이터 타입
         
         // 1.숫자 
@@ -43,13 +43,15 @@
         console.log(typeof result);
         
         //4.null - 정체모를 데이터 값이 들어간 것이라 보면 된다. 어떤 객체도 가리키고 있지 않음 (변수를 초기화 하지 않았다.)
+        // 추가 검색 결과 : 어떤값이 의도적으로 비어있음을 표시한다
+        // 즉, 개발자인 내가 의도적으로 여기에 값을 아무것도 안넣었고, 그래도 작동할 수 있게 하기위해 넣었다고 생각하면 됨
         
         let var1 = null;
         console.log(var1);
 
         
         
-        //5. undefined - 변수에 데이터가 야예 없을 때
+        //5. undefined - 변수에 데이터가  아예 없을 때
 
         let data
         
@@ -77,6 +79,7 @@
         let str6 = "12345aaa";
         //1. Number() > 문자를 숫자로 변환해주는 것
         // 소수점이 존재하면 포함해서 변환, 단 숫자에 문자가 포함되어있으면 안됨(NaN값이 된다는 소리)
+        // 0421 실험해보니 NaN의 데이터 타입은 number다 / 출력할때 문자로 표시되는게 아니라 NaN으로 표시되는 것임
         
         console.log(str5)
         console.log(typeof str5)
