@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+         num = window.prompt(`검증하고자 하는 숫자 입력하기`);
+         num2 = window.prompt(`몇의 배수인지 알고싶은지 1`);
+         num3 = window.prompt(`몇의 배수인지 알고싶은지 2`);
+
+        if(num%num2 == 0){
+            if(num%num3 == 0){
+                window.alert(`${num}은 ${num2}의 배수이면서 ${num3}의 배수인 수입니다.`)
+            } else{
+                window.alert(`${num}은 ${num2}의 배수이긴 하지만, ${num3}의 배수는 아닙니다.`)
+            }
+        } else {
+            window.alert(`${num}은 ${num2}의 배수도, ${num3}의 배수도 아닙니다.`)
+        }
+    </script>
+</body>
+</html>

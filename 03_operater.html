@@ -65,7 +65,7 @@
         let sNum = 2;
         let tNum = '1';
 
-        console.log("===비교 연산자");
+        console.log("===비교 연산자===");
         console.log(fNum == sNum);
         console.log(fNum != sNum);
         console.log(fNum == tNum);
@@ -79,7 +79,7 @@
 
         // &&(*) and / ||(+) or / TRUE 1 이상 / FALSE 0 이것만 알면 여러가지 복잡한 논리연산도 쉽게 할 수 있다
 
-        console.log("===논리 연산자");
+        console.log("===논리 연산자===");
         console.log(true && true);
 
         console.log(fNum < sNum && fNum >= sNum);
@@ -98,7 +98,10 @@
         console.log(!true);
 
         // 덩치가 작은애가 덩치가 큰애로(표현을 다 포괄해서 할 수 있는 친구로 바뀐다) 타입 자동 변환(자동 형변환이었던거같은데 단어가)
+        
+        // 참고사항 : byte > short / char > int > long > float > double (자바에서의 자동 형변환 일어나는 규칙)  
 
+        
         n1 = 1.1;
         n2 = 3;
         console.log(n1+n2);
@@ -119,7 +122,7 @@
         // ex) 753 > 7+5+3 = 15
 
 
-        // 내답안
+        // 내답안(뭔데 나 왜이렇게 잘풀었는데 ㅋㅋㅋㅋ)
         let a = window.prompt("세자리수 입력");
         number = parseInt(a/100) + parseInt((a%100)/10)+(a%100)%10
         window.alert(number);
@@ -136,4 +139,4 @@
 
     </script>
 </body>
-</html>
+</html> 

@@ -83,11 +83,45 @@
 
         //내 풀이(해결?)
 
-        for(i=1; i<3; i++){
-            fac=(i+1)*i
-        }
-        console.log(fac);
+        // for(i=1; i<3; i++){
+        //     fac=(i+1)*i
+        // }
+        // console.log(fac);
 
+        // 4/23 내풀이 찐해결
+
+        let facNum = window.prompt(`팩토리얼 해드리겠습니다`);
+        facResult= 1
+        for(a=1; a<=facNum ;a++){
+            facResult *= a; // 해결해 버렸다리~~
+        }
+        alert(facResult);
+
+        // 여기서 두가지 오류를 범한 후 해결을 했었는데
+
+        // 오류 1 구문
+        // let facNum = window.prompt(`팩토리얼 해드리겠습니다`);
+        
+        // for(a=1; a<=facNum ;a++){
+        //     facResult= 1
+        //     facResult *= a; 
+        // }
+        // alert(facResult);
+
+        // 이렇게 하는경우, for가 반복이 되면서 facResult가 1로 다시 리셋이 되기때문에 내가 원하는 숫자가 안나오고, 단순히 내가 입력한 값이 최종적으로 1과 곱해져 나오는 오류가 있었다.
+
+        // 즉 리셋이 안되게 하려면 반복문에서 쓰일 변수의 값을 반복문 밖에서 미리 지정해 주는게 옳다는 말!
+
+        // 오류 2구문
+
+        // let facNum = window.prompt(`팩토리얼 해드리겠습니다`);
+        
+        // for(a=1; a<=facNum ;a++){
+        //     facResult *= a;    
+        // }
+        // alert(facResult);
+
+        // 이렇게 작성했더니, facResult의 값이 정의되지 않았다면서 해당구문 실행이 안되는것을 알 수 있었습니다.
 
 
         // 또다르게 시도한 풀이

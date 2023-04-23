@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // let sign = prompt("당신의 별자리는 무엇입니까?")
+        // if(sign.toLowerCase() == "전갈자리"){
+        //     alert("나도 전갈자리")
+        // }
+        // sign = window.prompt(`아무것도 없는 창입니다.`);
+        // console.log(sign);
+        // sign = window.prompt("오늘 너무 덥습니까?", "네");
+        // document.write("<input type=text value='apple'>")
+        
+        let result = 1+1 == 1+2
+        console.log(result);
+        console.log(typeof result);
+
+        let var1 = null;
+        console.log(var1);
+
+        let var2
+        console.log(var2);
+
+        var2 = "내가 글자를 넣었어"
+        console.log(var2);
+
+        var2num = Number(var2);
+        console.log(typeof var2);
+        console.log(var2num);
+
+        hey=Number("hey");
+        console.log(hey);
+        console.log(typeof hey);
+
+        testnull = null
+        console.log(testnull);
+        
+        let string5 = "123.123";
+        console.log(typeof string5);
+        console.log(typeof Number(string5));
+        
+        let string6 = Number(string5);
+        let intstring6 = parseInt(string6);
+        console.log(string6);
+        console.log(typeof string6);
+
+
+        let floatstring6 = parseFloat(string6);
+        console.log(floatstring6);
+        console.log(typeof floatstring6);
+
+        num3 = null;
+        let str9 = String(num3);
+        console.log(str9);
+        console.log(typeof str9);
+        str10 = str9.substring(0,2);
+        console.log(str10);
+        
+        for(a=0; a<10; a++){
+            let abc1 = "abc1";
+            var abc2 = "abc2";
+            const abc3 = "abc3";
+            document.write(`이것은 for문이 반복된지 ${a}번째 구문입니다.<br>`);
+        }
+        // console.log(abc1); not defined 처리됨 // 결국 값이 아예 없다는 소리(의도적인 값 x)
+        console.log(abc2); // 얘는 정상적으로 실행됨
+        // console.log(abc3); 이것도 역시 정상적으로 실행되지 않음
+
+        let abc1 = "꺄핫 중괄호구문을 빠져나왔지롱";
+        console.log(abc1);
+
+
+        let num = 1;
+        num = num + 1;
+        console.log(num);
+        console.log(num++);  //여기서 출력을 2로 먼저하고, num의 값은 3이됨
+        console.log(num);
+
+        // 비교 연산자는 true/false를 배출해냄
+
+
+        console.log("===논리 연산자===")
+        console.log(true && true);
+        console.log(true && false);
+        console.log(true || true);
+        console.log(true || false);
+
+        let new1 = 1
+        let new2 = "1"
+
+        console.log(new1 === new2); // false >> 데이터 형태가 다르기 때문
+        console.log(new1 == new2); // true >> 데이터 형태가 같기 때문
+
+        // 여기서 정처기 공부 추가로 하냐 안하냐, 따나 안따냐의 차이는 내가 하기 나름이다. 해내야지 창민? ㅇㅋ.
+
+        let hey1 = 1
+        let hey2 = 3.4565
+        
+        // hey1 + hey2 = hey3; > 시도 해봤는데 이렇게 하면, 가능하지 않은 좌항이래
+        
+        // hey3 = hey1 + hey2;
+
+        // console.log(hey3);
+        // console.log(typeof hey3);
+
+        let cha = 3/10;
+        console.log(cha);
+
+        a = 3;
+        b = 5; 
+        c = `다음에 즐겨요 피자헛`
+
+
+        let result2 = a < b? "참일땐 앞에것이 출력됨" : "거짓일땐 뒤엣것이 출력됨"
+        console.log(result2);
+        console.log(a+c);
+        console.log(typeof (a+c));
+
+        // 나의 새로 푼 풀이
+        
+        // a = window.prompt("세자리수 입력");
+
+
+        // b = parseInt(a/100)
+        // console.log(b)
+        // c = parseInt((a-(b*100))/10)
+        // console.log(c)
+        // d = (a-(b*100))%10
+        // console.log(d);
+
+        // number = b+c+d
+
+        // window.alert(number);
+
+        console.log(Date())
+
+        let date = Date();
+        console.log(date);
+        let date2 = new Date();
+        console.log(date2);
+
+
+        // let point = window.prompt("점수를 입력해 주십시오.")
+        // if (point >= 90){
+        //     window.alert(`${point}점을 받은 당신은 A학점입니다`)
+        // } else if (point >= 80){
+        //     window.alert(`${point}점을 받은 당신은 B학점입니다`)
+        // } else if (point >= 70){
+        //     window.alert(`${point}점을 받은 당신은 C학점입니다`)
+        // } else if (point >= 60 || point >= 0){
+        //     window.alert(`${point}점을 받은 당신은 D학점입니다`)
+        // }
+
+        // num = window.prompt(`2의 배수인지 5의 배수인지 내가 확인해주지`);
+
+        // if(num%2 == 0){
+        //     if(num%5 == 0){
+        //         window.alert(`${num}은 2의 배수이면서 5의 배수인 수입니다.`)
+        //     } else{
+        //         window.alert(`${num}은 2의 배수이긴 하지만, 5의 배수는 아닙니다.`)
+        //     }
+        // } else {
+        //     window.alert(`${num}은 2의 배수도, 5의 배수도 아닙니다.`)
+        // }
+
+        for(let a=1; a<=100; a++){
+            if(a%2 == 0){
+                console.log(a);
+            }
+        }
+
+        // 입력한 숫자의 팩토리얼 구하기
+        
+
+        let facNum = window.prompt(`팩토리얼 해드리겠습니다`);
+        // facResult = null; // null값에 연산을 하면 1이 되어버리나보다
+        facResult = 1;
+
+        for(a=1; a<=facNum ;a++){
+            // facResult *= a; // 해결해 버렸다리~~
+            facResult = facResult * a; // 둘다 가능
+        }
+        alert(facResult);
+    </script>
+</body>
+</html>
