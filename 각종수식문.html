@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //1~100까지 수 중에서 짝수만 출력
+
+        for(i=1; i<=100; i++){
+            // console.log(i)
+            if(i%2 == 0){
+                console.log("짝수 : "+i+"입니다.");
+            }
+        }
+
+        // 팩토리얼 구하기
+
+        let facNum = window.prompt(`팩토리얼 해드리겠습니다`);
+        facResult= 1
+        for(a=1; a<=facNum ;a++){
+            facResult *= a; // 해결해 버렸다리~~
+        }
+        alert(facResult);
+
+        // 별찍기 1
+
+        let abc = '';
+
+        for(a=1; a<=5; a++){
+            // for(b=1; b<=10; b++){
+                abc += "*"
+            // }
+            console.log(abc);
+        }
+
+        
+    </script>
+</body>
+</html>

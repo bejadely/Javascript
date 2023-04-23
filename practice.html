@@ -195,6 +195,98 @@
                 console.log(`${a} X ${b} = ${a*b}입니다.`)
             } 
         }
+
+        let abc = '';
+
+        for(a=1; a<=5; a++){
+            // for(b=1; b<=10; b++){
+                abc += "*"
+            // }
+            console.log(abc);
+        }
+
+        for(a=1; a<=5; a++){
+            console.log(`*****`)
+        } // ㅋㅋㅋ 이렇게 하니까 그냥 한줄에 별 다섯개 찍히고 옆에 5 달려있음 ㅋㅋ
+
+        star=""; // 오 변수가 이미 지정되있던걸 비워줄땐 앞에 let 안써야한다
+        for(let a=1; a<=5; a++){
+            for(let b=5; b>=a; b--){ //중간값은 처음 설정한 변수부터 몇번째까지 반복해줄지를 결정해준다고 생각하면 쉬움
+                star += "*";
+            }
+            star += "\n";
+        }
+        console.log(star);
+        
+        blank = ""
+
+        for(a=1; a<=5; a++){
+            for(b=1; b<a; b++){
+                blank += " "
+            }
+            for(c=5; c>=a; c--){
+                blank += "*"
+            }
+            blank += "\n"
+        }
+        console.log(blank);
+
+        let flag = true; // 중단 방법 1
+        sum = 0;
+        while(flag){
+            sum = sum + 1;
+            if(sum == 10){
+                break;
+            }
+        }
+
+        a=1;
+        do{
+            a += 1;
+            console.log(a);
+        } while(a<=100);
+
+
+        let ary = []
+
+        console.log(ary);
+        ary.push("1")
+        console.log(ary);
+        ary.push(2);
+        console.log(ary);
+        ary.push("햄버거");
+        console.log(ary);
+
+        ary.unshift("고라니");
+        console.log(ary);
+
+        ary.pop();
+        console.log(ary);
+
+        ary.shift();
+        console.log(ary);
+
+        ary.shift(1);
+        console.log(ary);
+        ary2 = [1,2,3,4,5,6,7,8,9,0]
+        console.log(ary2);
+        ary2.shift(3); // shift 안에 뭘 집어넣든 상관없이 맨 앞에있는거 하나씩 뽑아가네
+        console.log(ary2)
+
+        array = []
+        array.splice(0,0,"단무지")
+        array.splice(0,1,"이무지")
+        console.log(array);
+        console.log(array.length);
+
+        ary3 = []
+        for(a=1; a<=10; a++){
+            word = window.prompt(`배열에 들어갈 목록을 순서대로 작성하세요`);
+            ary3.push(word);
+        }
+        console.log(ary3);
+
+
     </script>
 </body>
 </html>
