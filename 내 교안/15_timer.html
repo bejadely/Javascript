@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        document.addEventListener('DOMContentLoaded', ()=>{
+            // 시간 측정할때 사용
+            let timer = 0;
+            // 타이머 ID(멈추고 시작할 때 사용)
+            let timerId = 0;
+
+            let h1 = document.querySelector('h1');
+            let ckb = document.querySelector('input');
+
+            ckb.addEventListener('change', (event)=>{
+                if(event.currentTarget.checked){
+                    timerId = setInterval(()=>{
+                        timer = timer + 1;
+                        h1.textContent = timer;
+                    }, 1000)
+                } else{
+                    // 체크 해제
+                    clearInterval(timerId);
+                }
+            })
+        })
+
+        // setInterval()은 첫번째 인자로 함수를 넣고, 두번째 인자로 그 간격 시간을 받음
+    </script>
+    <input type="checkbox">
+    <span>타이머 활성화</span>
+    <h1></h1>
+</body>
+</html>

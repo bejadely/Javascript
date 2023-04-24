@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>주창민</title>
+    <style>
+        body{
+            margin: 0 auto;
+            width: 80%;
+            text-align: center;
+        }
+        #div1{
+            margin: 0 auto;
+        }
+        #div2{
+            margin: 0 auto;
+        }
+        table{
+            border: 1px solid grey;
+            border-collapse: collapse;
+        }
+        th{
+            background-color: #333;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">
+        <div id="div2">
+            <label >도서코드<input type="text" id="bookcd" name="bookcd"></label><br>
+            <label >도서명<input type="text" id="bookname" name="bookname"></label><br>
+            <label >저자<input type="text" id="writer" name="writer"></label><br>
+            <label >출판사<input type="text" id="publish" name="publish"></label><br>
+            <label >금액<input type="text" id="costs" name="costs"></label>
+
+            <button type="button" onclick="save()">저장</button>
+            <button type="button" onclick="selectdel()">선택삭제</button>
+        </div>    
+        <div id="div3">
+            <table>
+                <thead>
+                    <th><input type="checkbox"></th>
+                    <th>도서코드</th>
+                    <th>도서명</th>
+                    <th>저자</th>
+                    <th>출판사</th>
+                    <th>가격</th>
+                    <th>삭제</th>
+                </thead>
+                <tbody id="tbody">
+
+                </tbody>
+            </table>
+            <script>
+                
+                function save(){
+                    let dataList = document.querySelectorAll('#div2 input[type="text"]')
+                    let tr = document.createElement('tr')
+                    
+                    let div2check = document.createElement('input')
+                    div2check.setAttribute("type", "checkbox")
+                    tr.appendChild(div2check) //div2에 체크박스 넣기
+
+                    for(let a=0; a<dataList.length; a++){
+                        let td = document.createElement('td');
+                        td.textContent = dataList[a].value;
+                        tr.appendChild(td)
+                    }
+                    let tbd = document.querySelector("#tbody")
+                    tbd.appendChild
+                    tbd.appendChild(tr);
+
+                    let del2 = document.createElement('button') // div2 삭제버튼 만둘기
+                    del2.setAttribute("type","button")
+                    del2.setAttribute("onclick","actOneDelete()") //안되면 제거할 부분, 속성에 onclick = actOneDelete()펑션 추가
+                    del2.textContent = "삭제"
+                    tr.appendChild(del2) //tr 생성될때마다 맨 마지막에 del2라는 삭제버튼 넣기
+                }
+
+                function selectdel(){
+                    let ckb2 = document.querySelectorAll('input[type=checkbox]:checked');
+                    for(a=0; a<ckb2.length; a++){
+                        ckb2[a].parentNode.remove();
+                    }
+                }
+
+                function actOneDelete(){
+                    let whatToDel = event.target;
+                    // console.log(whatToDel);
+                    // console.log(whatToDel.parentNode);
+                    whatToDel.parentNode.remove();
+                }
+
+            </script>
+        </div>
+    </div>
+</body>
+</html>

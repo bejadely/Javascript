@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html{
+            font-family: sans-serif;
+        }
+        body{
+            width: 50%;
+            max-width: 800px;
+            min-width: 480px;
+            margin: 0 auto;
+        }
+            
+        .form input[type="number"]{
+            width: 200px
+        }
+        .lastResult{
+            color: white;
+            padding: 3px;
+        }
+    </style>
+</head>
+<body>
+    <h1>랜덤 숫자 추측 게임</h1>
+    <p>
+        1) 1~100사이의 값 중에서 입력하세요.<br>
+        2) 랜덤 값 > 입력 값 : high<br>
+        3) 랜덤 값 < 입력 값 : low<br>
+        4) 기회는 총 열번입니다.
+    </p>
+
+    <div class="form">
+        <label for="guessField">Enter a Number</label>
+        <input type="number" min="1" max="100" required id="guessField" class="guessField">
+        <input type="submit" value="Submit Guess" class="guessSubmit">
+    </div>
+    <div class="resultParas">
+        <p class="guesses"></p>
+        <p class="lastResult"></p>
+        <p class="lowOrHi"></p>
+    </div>
+    <script>
+        let randomNumber = Math.floor(Math.random()*100) + 1;
+
+        // 각 DOM을 선택한 변수 생성
+
+        let guesses = document.querySelector('.guesses');
+        let lastResult = document.querySelector('.lastResult');
+        let lowOrHi = document.querySelector('.lowOrHi')
+        let guessSubmit = document.querySelector('.guessSubmit');
+        let guessField = document.querySelector('.guessField')
+
+        let guessCount = 1;
+        let resultButton;
+
+        guessSubmit.addEventListener('click', checkGuess);
+
+        function checkGuess(){
+            let userGuess = Number(guessField.value);
+            if(guessCount == 1){
+                guesses.textContent = `이전 값 : `;
+            }
+            guesses.textContent += userGuess + " ";
+
+            // 랜덤값과 입력값 비교
+            // randomNumber / userGuess
+
+            // 1) 랜덤 == 입력
+            if(userGuess == randomNumber){
+                lastResult.textContent = "축하합니다 정답입니덩"
+                lastResult.style.backgroundColor = "green"
+                lowOrHi.textContent = "";
+                // 게임 끝났다에 대한 기능
+                setgameover()
+            } else if(guessCount == 10){
+                lastResult.textContent = "Game Over"
+                lowOrHi.textContent = '';
+                setgameover()
+            } else {
+                // 비교
+                lastResult.textContent = "님 틀렸음."
+                lastResult.style.backgroundColor = 'red';
+                if(userGuess < randomNumber){
+                    lastResult.textContent = "입력한 값이 작습니다."
+                    lowOrHi = '';
+                } else if(userGuess > randomNumber){
+                    lastResult.textContent = "입력한 값이 큽니다."
+                }
+            }
+            guessCount++;
+            guessField.value = ''; // 입력한 값을 지워주기
+            guessField.focus(); // 다시 입력하게, guessField에 포커스 맞춰주기
+        }
+
+        
+
+        function setgameover(){
+            guessField.disabled = true;
+            guessSubmit.disabled = true;
+            resetBtn = document.createElement('button');
+            resetBtn.textContent = "새게임하기"
+            document.body.appendChild(resetBtn);
+            resetBtn.addEventListener('click', resetGame); // resetGame이라는 함수를 새로 정의해서 , 해당 버튼 누르면 resetGame이라는 함수가 활성화 될 수 있게 해야함
+        }
+
+        function resetGame(){
+            guessCount = 1;
+            let resetParas = document.querySelectorAll('.resultParas p') //resultParas 의 p태그 세개를 다 가져왔음
+            for(let i=0; i<resetParas.length; i++){
+                resetParas[i].textContent = '';
+            }
+            event.target.parentNode.removeChild(event.target);
+            guessField.disabled = false;
+            guessSubmit.disabled = false;
+            guessField.value = '';
+            guessField.focus();
+
+            lastResult.style.backgroundColor = "white";
+            randomNumber = Math.floor(Math.random()*100) + 1;
+        }
+
+        // guess >> 랜덤값 맞추는 겡미
+        // 1) 1~100사이의 값
+        // 2) 랜덤값 > 입력값  : high
+        // 3) 랜덤값 < 입력값  : low
+        // 4) 기회 10번
+    </script>
+</body>
+</html>

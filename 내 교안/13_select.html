@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <select name="select" id="select" onclick="check()"> onclick 하면 check()함수를 실행시켜라
+        <option>자바</option>
+        <option>HTML</option>
+        <option>CSS</option>
+        <option>JavaScript</option>
+        <option>Oracle</option>
+        <option>Python</option>
+    </select> -->
+    <section id="section-sample">
+        <div id="div-sample">
+            <input type="button" value="클릭!">
+            <button id="btn2">버튼2</button>
+        </div>
+    </section>
+        <script>
+            let section = document.getElementById('section-sample');
+            let div = document.querySelector('#div-sample');
+            let btn = document.querySelector('#div-sample > input[type="button"]') // 선택자 들어감
+
+            section.addEventListener('click', event =>{
+                console.log(event.target)  // 클릭한 대상(클릭한 button)
+                console.log(event.currentTarget) // 이벤트를 걸어놓은 대상(이벤트리스너를 section에다 걸어놔서 이게 출력이 된다는 소리임)
+                alert('section 클릭');
+            })
+            // div.addEventListener('click', e =>{
+            //     alert('div 클릭')
+            // })
+            // btn.addEventListener('click', event =>{
+            //     // 이벤트 전파를 중단
+            //     event.stopPropagation();
+            //     alert('button 클릭')
+            // })
+            // 지금 위의 상태로만 놔두게 되면, 자식요소인 button만 눌렀는데도 section부분이 함께 이벤트가 실행됨
+
+            // 외우는게 중요한게 아니라, 이해를 하고 활용하는게 중요함
+
+            // 배운걸 활용해서 내가 한번 써보길 바라는 마음에서 시험을 치는 것임
+
+            // 내가 어떤 상황에서 어떤 기능을 활용할 수 있다는것을 알기 위해서 배우는거다
+
+            // this의 세번째 의미 > 이벤트가 있을때에는 이벤트에서 클릭한 내용을 의미함
+        </script>
+        <script>
+            function check(){ // 이렇게 하니까 event.target이 select문에 먹는다
+            //    console.log(event.currentTarget.length);
+                // console.log(event.target);
+                console.log(event.currentTarget.options);
+                console.log(event.currentTarget.options.selectedIndex); // 여기서 배워야할 점은, 처음부터 바로 딱딱 하는게 중요한게 아니라, 만약 생각한 것이랑 다른 값이 나왔다면 추가로 해보고 바꿔보는 활동이 중요함
+
+                let options = event.currentTarget.options;
+                let index = event.currentTarget.options.selectedIndex;
+
+                let p = document.createElement('p');
+                p.textContent = `선택  : ${options[index].textContent}` //$안에 있는것이 내가 선택한 옵션 안에 있는 데이터를 의미함
+                document.body.appendChild(p); // 바디 바로 뒤에 붙여라
+            }
+            
+
+            // event.currentTarget.options를 사용하게 되면, 누른 주체의 옵션들을 나열한 후, 몇번째것을 내가 눌렀는지도 확인 가능하다
+            // 어떤 요소를 찾아갈때는 개발자 도구에서 나오는 요소들 중 진한 색으로 칠해진 친구들을 참고해서 찾아가면 쉽다
+
+            // 이벤트를 걸어놓은 요소를 이벤트를 제어하는 주체라는 의미에서 event handler라고 부른다
+
+            // currentTarget 은 내가 선택한 주체를 의미한다
+
+            // currentTarget.selectedIndex는 내가 선택한것의 인덱스 넘버를 의미한다
+
+            // 자바 스크립트는 어떤 DOM에서 이벤트가 발생하면, 그 이벤트가 파동처럼 퍼져나가서, 그 돔의 부모 돔까지 이벤트가 다 전파가 되는 경우가 많음
+
+            // 이걸 버블링이라고 한다 bubbling
+
+            // 반대로 부모의 DOM에 이벤트를 발생시켰는데, 자식, 손자까지 이벤트가 퍼져나가는 경우도 있는데 이를 Capturing이라고 한다
+
+            // 이러한 이벤트 전파(버블링, 캡쳐링)를 막기 위해서 >> stop propation???(스펠링 확실하지 않음)을 사용한다.
+
+            btn2.onclick = printThis;
+
+            function printThis(){
+                console.log(this);
+            }
+            
+            // 이벤트에서의 this의 의미 > event.currentTarget을 의미한다
+
+            
+        </script>
+</body>
+</html>
